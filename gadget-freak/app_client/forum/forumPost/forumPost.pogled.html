@@ -1,0 +1,97 @@
+
+<style>
+    button {
+        float: right;
+    }
+
+   
+    textarea {
+    width: 100%;
+    height: 150px;
+    padding: 12px 20px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    background-color: #f8f8f8;
+    resize: none;
+    }
+
+    ul {
+        width: 100%;
+    }
+
+    hr {
+        display: block;
+        height: 1px;
+        border: 0;
+        border-top: 1px solid #ccc;
+        margin: 1em 0;
+        padding: 0;
+        color: white;
+    }
+
+    .profilepic1 {
+        width: 75px;
+        height: auto;
+    }
+
+    .jumbotron {
+        border: 2px solid black;
+    }
+    
+    ul {
+      list-style-type: none;
+    }
+    
+   
+ 
+    
+
+
+</style>
+<navigation>
+</navigation>
+<body>
+<div class = "row justify-content-center">
+    <div class = "jumbotron w-75" padding-top = "500px">
+        <p>
+            {{vm.data.forumPost.user}} :
+            <p>
+                <strong>
+                     {{vm.data.forumPost.content}}
+                </strong>
+            </p>
+        </p>
+    </div>
+</div>
+<ul width="100%">
+<li ng-repeat = "reply in vm.data.forumPost.replies">
+    <div id = "cmt" class = "row justify-content-center">
+        <div class = "jumbotron w-50" id = "cmt">
+            <p>
+                <p>
+                    {{reply.user}} :
+                    <strong>
+                        {{reply.content}}
+                    </strong>
+                </p>
+                <button ng-show ="vm.user == reply.user" ng-click = "vm.deleteReply(vm.data.forumPost._id, reply._id)" class="btn btn-secondary" type="submit" align="center" method="post">Delete</button>
+            </p>
+            <hr>
+        </div>
+    </div>
+</li>
+</ul>
+
+<div class="row justify-content-center">
+    <div class="jumbotron w-50" padding-top="500px"><label></label>
+        <form method="post" role="form" ng-submit = "vm.replyPost()">
+            <div class="form-group"><textarea id="myText" ng-show = "vm.loggedIn" class="form-control" ng-model = "vm.reply" id="exampleFormControlTextarea1" placeholder="Comment here..." method="post" name="replyContent"></textarea>
+            <p ng-hide = "vm.loggedIn">You have to be logged in to reply!</p></div>
+            <div class="form-group"><button id = "gumb2" ng-show = "vm.loggedIn" class="btn btn-secondary" type="submit" align="center" method="post">Comment!</button>
+            <p>
+            </p>                    </div>
+        </form>
+    </div>
+</div>
+</body>

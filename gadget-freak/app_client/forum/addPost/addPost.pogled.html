@@ -1,0 +1,17 @@
+<navigation></navigation>
+<div class="row justify-content-center">
+    <div class="jumbotron w-75" padding="" top="500px">
+        <h1 class="display-6">Start a new forum thread!</h1>
+        <hr class="my-4" />
+        <div class="dropdown">
+            <div class="form-group" method="post" role="form"><label ng-show = "vm.loggedIn">What is it about?</label><select id="sel" ng-show = "vm.loggedIn" class="form-control" id="inputState"><option selected=""> Choose...</option><option>Broken gadget</option><option>New releases</option><option id="rand">Random thoughts</option><option>I am bored</option><option>Other</option></select></div>
+            <form role="form" ng-submit = "vm.addPost()">
+                <div class="form-group"><textarea id="text" ng-show = "vm.loggedIn" ng-model = "vm.content" class="form-control" id="exampleFormControlTextarea1" name="content" rows="3" placeholder="Explain it here..."></textarea>
+                    <div class="form-group"><button id="but" ng-show = "vm.loggedIn" class="btn btn-secondary" type="submit">Post</button></div>
+                    <p>{{vm.message}}</p>
+                </div>
+                </form>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,5 @@
+Here the admin adds the gadget to the main database. All of the gadgets that the admin added
+will be shown at the devicePost.html page. Here, the admin can upload specifications of the device,
+a photo, and relevant information about the device from his perspective (personal thoughts). Later, using the information
+on the devicePost.html page, users start forum threads. Though, device posts and forum are not directly related,
+posts on the forum are meant to be about the uploaded gadgets. 

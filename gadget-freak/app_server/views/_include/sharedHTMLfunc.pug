@@ -1,0 +1,7 @@
+mixin prikaziOceno(ocena)
+  - for (var i = 1; i <= ocena; i++)
+    span
+        img(src='../images/stars/full.png', style='width:20px;')
+  - for (var i = ocena; i < 5; i++)
+    span
+        img(src='../images/stars/empty.png', style='width:20px;')

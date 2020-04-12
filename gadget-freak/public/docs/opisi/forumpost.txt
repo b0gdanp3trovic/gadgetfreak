@@ -1,0 +1,4 @@
+Forum post is the display of the post. Here the user can see the whole thread, 
+including comments. The only profile picture that is visible, is the thread poster's one.
+Upvote/Downvote system will most likely be implemented, and depending on the number of
+upvotes, comments will be sorted in descending order top down.

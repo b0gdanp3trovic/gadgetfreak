@@ -1,0 +1,35 @@
+.thread {
+    border: 1px solid black;
+    background-color: #001f3f;
+    padding-top: 50px;
+    padding-right: 30px;
+    padding-bottom: 50px;
+    padding-left: 80px;
+}
+
+.profilepic1 {
+    width:75px;
+    height:auto;
+}
+
+
+table{
+    background-color: #BCBCBE;
+    width:100%;
+    color:black;
+}
+
+.gumb{
+    background-color: black;
+    color:white;
+    border-radius:25px;
+}
+
+td{
+    padding-right:30px;
+    padding-top:30px;
+    padding-bottom:30px;
+}
+
+tr:nth-child(even) td { background: #97979b; }
+tr:nth-child(odd) td { background: #BCBCBE; }

@@ -1,0 +1,120 @@
+<navigation></navigation>
+<div>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script async="" src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"/></script>
+    <div class="container-fluid text-left">
+      <div class="h-100 row content" ng-controller="gadgetPostCtrl">
+        <div class="col-sm-2 col-md-auto sidenav bg-dark">
+          <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+            <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#"><font color="white">Phones</font></a><span class="caret"></span>
+              <ul class="dropdown-menu bg-dark text-left">
+                <li><a href="/devicePost/5c03dbafe0e2b7e8b2309a8d"><font color="white">Iphone X</font></a></li>
+                <li><a href="#"><font color="white">Samsung Galaxy S9</font></a></li>
+                <li><a href="#"><font color="white">Huawei P20</font></a></li>
+              </ul>
+            </li>
+            <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#"><font color="white">Laptops</font></a><span class="caret"></span>
+              <ul class="dropdown-menu bg-dark text-left">
+                <li><a href="#"><font color="white">Alienware M15</font></a></li>
+              </ul>
+            </li>
+            <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#"><font color="white">Tech to be added</font></a><span class="caret"></span>
+              <ul class="dropdown-menu bg-dark text-lefts">
+                <li><a href="#"><font color="white">...</font></a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+        <div class="col-sm-8 text-left">
+          <h1 id="title">{{vm.data.frontPage.phone}}</h1>
+          <div class="col-xs-3">
+              <div tweet="vm.data.frontPage.phone" tweet-url="123"></div>
+          </div>
+          <hr/>
+          <!--<div class="btn-group" role="group" aria-label="Basic example"><a class="btn btn-secondary" href="/add-gadget/{{vm.data._id}}" type="button">Edit</a><a class="btn btn-secondary" href="{{vm.data._id}}/pictures" type="button">Add pictures</a><a class="btn btn-secondary" id="deletePost" href="/" type="button">Delete</a></div> -->
+          <div class="accordion" id="accordionExample">
+            <div class="row">
+              <div class="col-auto"><img height="400" ng-src="{{vm.data.frontPage.pic}}"/></div>
+              <div class="col-auto">
+                <p><a class="btn btn-secondary" data-toggle="collapse" href="#collapseSpecs" role="button" aria-expanded="true" aria-controls="collapseSpecs">Specs</a></p>
+                <p><a class="btn btn-secondary" data-toggle="collapse" href="#collapseImages" role="button" aria-expanded="false" aria-controls="collapseImages">Images</a></p>
+              </div>
+              <div class="collapse show" id="collapseSpecs" data-parent="#accordionExample">
+                <div class="col-auto rounded border border-dark">
+                  <p class="spec-buffer"><b>Brand</b>: {{vm.data.devicePage.brand}}</p>
+                  <p class="spec-buffer"><b>Generation</b>: {{vm.data.devicePage.generation}}</p>
+                  <p class="spec-buffer"><b>First released</b>: {{vm.data.devicePage.released}}</p>
+                  <p class="spec-buffer"><b>Predecessor</b>: {{vm.data.devicePage.predecessor}}</p>
+                  <p class="spec-buffer"><b>Dimensions</b>: {{vm.data.devicePage.dimensions}}</p>
+                  <p class="spec-buffer"><b>Weight</b>: {{vm.data.devicePage.weight}}</p>
+                  <p class="spec-buffer"><b>Operating system</b>: {{vm.data.devicePage.os}}</p>
+                  <p class="spec-buffer"><b>CPU</b>: {{vm.data.devicePage.cpu}}</p>
+                  <p class="spec-buffer"><b>Modem</b>: {{vm.data.devicePage.modem}}</p>
+                  <p class="spec-buffer"><b>Memory</b>: {{vm.data.devicePage.memory}}</p>
+                  <p class="spec-buffer"><b>Storage</b>: {{vm.data.devicePage.storage}}</p>
+                  <p class="spec-buffer"><b>Battery</b>: {{vm.data.devicePage.battery}}</p>
+                  <p class="spec-buffer"><b>Display</b>: {{vm.data.devicePage.display}}</p>
+                  <p class="spec-buffer"><b>Rear camera</b>: {{vm.data.devicePage.rear_camera}}</p>
+                  <p class="spec-buffer"><b>Front camera</b>: {{vm.data.devicePage.front_camera}}</p>
+                  <p class="spec-buffer"><b>Sound</b>: {{vm.data.devicePage.sound}}</p>
+                </div>
+              </div>
+              <div class="row collapse" id="collapseImages" data-parent="#accordionExample">
+                <div class="container">
+                  <div class="row">
+                    <div class="col" ng-repeat="picture in vm.data.pictures"><a class="color-gray-darker td-hover-none" data-target="#{{picture.target}}" data-toggle="modal" href="#">
+                        <div class="ba-0 tp-s"><img class="rounded border border-dark" height="200" ng-src="{{picture.src}}"/></div></a>
+                      <div class="modal fade center" id="{{picture.target}}" aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tab/="-1">
+                        <div class="modal-dialog" role="document">
+                          <div class="modal-content center">
+                            <div class="modal-body mb-0 p-0"><img ng-src="{{picture.src}}" alt="" style="width:100%"/></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <hr/>
+          <h3>Comments
+            <div class="row">
+              <div class="col-auto"><a id="comment" class="col-auto btn btn-secondary" ng-click="vm.showCommentWindow()" role="button">Comment</a></div>
+              <div class="col-auto"><a class="col-auto btn btn-secondary" ng-click="vm.commentSortType()" role="button">Sort by date</a></div>
+            </div>
+          </h3>
+          <hr/>
+          <nav aria-label="...">
+            <ul class="pagination">
+              <li class="page-item">
+                <span class="page-link" ng-click="vm.commentOffsetDec()" >Previous</span>
+              </li>
+              <li class="page-item">
+               <span class="page-link" ng-click="vm.commentOffsetInc()" >Next</span>
+              </li>
+            </ul>
+          </nav>
+          <div class="container">
+            <div class="row">
+              <div class="col-md-8">
+                <div class="comments-list" ng-repeat="comment in vm.data.comments | formatComments:vm.asc | limitTo: 5 : vm.commentsOffset">
+                  <div class="media row top-buffers" id="{{comment.num}}">
+                    <div class="media-left col-auto comImg" href="#"><img class="rounded-circle center" ng-src="{{comment.picture}}"/></div>
+                    <div class="media-body col">
+                      <h4 class="media-heading user_name">{{comment.user}} <small>{{comment.date}} </small><a ng-show="vm.currentUserAd" ng-click="vm.editCommentWindow(comment._id)" style="color: black; cursor: pointer; "><span class="material-icons">edit</span></a></h4><a>
+                      <a><button class="close text-right" ng-show="vm.currentUserAd"  id="deleteComment" href="/devicePost" type="button" aria-label="Close"><span ng-click="vm.removeComment(comment._id)"aria-hidden="true">×</span></button></a>
+                      <p>{{comment.content}}</p><span class="rating" show-stars="show-stars" stars="comment.stars"></span>
+                    </div>
+                  </div>
+                  <hr/>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>

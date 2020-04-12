@@ -1,0 +1,29 @@
+extends layout
+block append head
+    script(src='/javascripts/register.js')
+
+block content
+    .row.justify-content-center
+        .col-md-6
+            .card
+                header.card-header
+                    h4.card-title.mt-2 Log in
+                article.card-body
+                    form(method="POST", onsubmit="return mySubmitFunctionLogin(event)", action="", name="reg", role="form")
+                        - if (error == "true")
+                            .alert.alert-danger(role="alert") Please fill in all the fields.
+                        - if (error == "validation")
+                            .alert.alert-danger(role="alert") Incorrect username or password
+                        .alert#emptyField.alert-danger(role="alert", style="display: none;" ) Please fill in all the fields.
+                        .form-group
+                            label Username or Email
+                            input#uname.form-control(name='uname', type='text', maxlength='50')
+                        .form-group
+                            label Password
+                            input#pword.form-control(name='pword', type='password', maxlength='50')
+                        .form-group dugme
+                            button.btn.btn-secondary.btn-block(type='submit')  Log in
+                            // TODO: Check valid information
+                .border-top.card-body.text-center
+                    | Don't have an account? 
+                    a(href='register') Sign up

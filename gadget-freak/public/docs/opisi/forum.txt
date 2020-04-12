@@ -1,0 +1,6 @@
+Forum will be the main place of discussion on this website. Here, users can
+start new threads and comment on posts. Upvote/downvote system will most 
+likely be implemented in the future. Each post is actually a table element, 
+which contains the username of the user who started the thread, first couple of
+words of the post (so users can understand what it is about), number of replies
+and number of views. User's profile picture could be seen as well. 

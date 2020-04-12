@@ -1,0 +1,26 @@
+<div class="modal-content">
+    <div class="modal-body">
+      <div class="row justify-content-center">
+          <div class=" w-75" padding="" top="500px">
+              <h1 class="display-4">Comment</h1>
+              <button type="button" ng-click="vm.modalWin.close()" class="close">
+                <span aria-hidden="true">x</span><span class="sr-only">Close</span>
+              </button>
+              <div role="alert" ng-show="vm.formError" class="alert alert-danger">{{ vm.formError }}</div>
+              <hr class="my-4" />
+              <form class="form-horizontal" ng-submit="vm.sendData()" role="form">
+                  <div class="dropdown"></div>
+                  <div class="form-group"><label>Rate the gadget</label><select id = "rate" ng-model="vm.commentData.stars" class="form-control" id="stars" name="stars"><option>5</option><option>4</option><option>3</option><option>2</option><option>1</option><option>0</option></select></div>
+                  <div class="form-group"><textarea id= "cmt" class="form-control" ng-model="vm.commentData.comment" id="comment" name="commentContent" rows="3" placeholder="Your thoughts about the gadget..."></textarea></div>
+                  <div class ="row">
+                    <div class="col-auto">
+                      <button id="sub" class="btn btn-secondary" type="submit">Submit</button></form>
+                    </div>
+                    <div class="col-auto">
+                      <button ng-click="vm.modalWin.close()" type="button" class="btn btn-secondary ">Close</button>
+                    </div>
+                  </div>
+          </div>
+      </div>
+    </div>
+</div>

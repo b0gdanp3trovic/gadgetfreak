@@ -1,0 +1,5 @@
+# Knjižnice
+node_modules
+
+# Okoljske spremenljivke
+.env

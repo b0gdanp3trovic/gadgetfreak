@@ -1,0 +1,41 @@
+extends layout
+block append head
+    link(rel='stylesheet', href='../stylesheets/forumstyle.css')
+    script(src='/javascripts/forum.js')
+block content
+  button.btn.btn-secondary.btn-block
+    a.nav-link.gumb(href='/add-post') Start a new thrrread!
+  table(border='1', frame='void', rules='rows' ng-controller = "forumCtrl")
+    tbody(ng-repeat = "post in data.forumPosts")
+      tr
+        th(width='5%')
+          | User:
+        th(width='15%')
+        th(width='35%')
+          | Post:
+        th(width='10%')
+        th(width='10%')
+          | Replies:
+        th(width='10%')
+          | Views:
+        th(width = '5%')
+        tr
+          td
+            
+          td
+            h4
+              | {{post.user}}
+          td
+            | {{post.content}}
+          td
+            a(href='forum/post/'+ "{{post._id}}" )
+              font(color='black') Read more...
+          td(ng-init = "length = #{post.replies.length}")
+            | {{post.replies.length}}
+          td
+            | {{post.viewers.length}}
+          td
+              form(method = "delete" role = "form")
+                .form-group
+                  -var id = "{{post._id}}"
+                  //a.button.btn.btn-secondary.btn-block(type = "button" href = "/forum" onclick=`restRequestDelete(${JSON.stringify({{post._id}})})` ) DELETE

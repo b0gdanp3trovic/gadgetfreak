@@ -1,0 +1,27 @@
+extends layout
+block append head
+    link(rel='stylesheet', href='stylesheets/addforumpoststyle.css')
+    
+block content
+  .row.justify-content-center
+    .jumbotron.w-75(padding='', top='500px')
+      h1.display-6 Start a new forum thread!
+      hr.my-4
+      .dropdown
+        .form-group(method = "post" role = "form")
+          label What is it about?
+          select#inputState.form-control
+            option(selected='')  Choose...
+            option Broken gadget
+            option New releases
+            option Random thoughts
+            option I am bored
+            option Other
+        form(method="post" role = "form")
+          .form-group
+            textarea#exampleFormControlTextarea1.form-control(name= "content" rows='3', placeholder='Explain it here...')
+          -if (typeof(user) == 'undefined')
+            label You have to be logged in to post on the forum.
+          -else 
+            .form-group
+              button.btn.btn-secondary(type='submit') Post

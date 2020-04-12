@@ -1,0 +1,20 @@
+<div class="row justify-content-center">
+    <div class="col-md-6">
+        <div class="card">
+            <header class="card-header">
+                <h4 class="card-title mt-2">Log in</h4>
+            </header>
+            <article class="card-body">
+                <form method="POST" onsubmit="return mySubmitFunctionLogin(event)" action="" name="reg" role="form">
+                    <div role="alert" ng-show="vm.formError" class="alert alert-danger">{{ vm.formError }}</div>
+                    <div class="form-group username"><label>Username or Email</label><input id = "username" class="form-control" id="uname" name="uname" type="text" maxlength="50" /></div>
+                    <div class="form-group password"><label>Password</label><input id="password" class="form-control" id="pword" name="pword" type="password" maxlength="50" /></div>
+                    <div class="form-group"><button id="dugme" class="btn dugme btn-secondary btn-block" type="submit"> Log in</button>
+                        <!-- TODO: Check valid information-->
+                    </div>
+                </form>
+            </article>
+            <div class="border-top card-body text-center">Don't have an account? <a href="register">Sign up</a></div>
+        </div>
+    </div>
+</div>

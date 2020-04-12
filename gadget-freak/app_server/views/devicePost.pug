@@ -1,0 +1,152 @@
+extends layout
+include _include/sharedHTMLfunc.pug
+block append head
+  script(src='/javascripts/index.js')
+  script(async='', src='https://platform.twitter.com/widgets.js', charset='utf-8')
+  link(rel='stylesheet', href='https://fonts.googleapis.com/icon?family=Material+Icons')
+
+
+  
+block content
+  .container-fluid.text-left
+    .h-100.row.content(ng-controller="gadgetFreakCtrl")
+      .col-sm-2.col-md-auto.sidenav.bg-dark
+        ul.navbar-nav.mr-auto.mt-2.mt-lg-0
+          li.nav-item.dropdown
+            a.nav-link.dropdown-toggle(data-toggle='dropdown', href='#')
+              font(color='white') Phones
+            span.caret
+            ul.dropdown-menu.bg-dark.text-left
+              li
+                a(href='/devicePost/5c03dbafe0e2b7e8b2309a8d')
+                  font(color='white') Iphone X
+              li
+                a(href='#')
+                  font(color='white') Samsung Galaxy S9
+              li
+                a(href='#')
+                  font(color='white') Huawei P20
+          li.nav-item.dropdown
+            a.nav-link.dropdown-toggle(data-toggle='dropdown', href='#')
+              font(color='white') Laptops
+            span.caret
+            ul.dropdown-menu.bg-dark.text-left
+              li
+                a(href='#')
+                  font(color='white') Alienware M15
+          li.nav-item.dropdown
+            a.nav-link.dropdown-toggle(data-toggle='dropdown', href='#')
+              font(color='white') Tech to be added
+            span.caret
+            ul.dropdown-menu.bg-dark.text-lefts
+              li
+                a(href='#')
+                  font(color='white') ...
+      .col-sm-8.text-left
+        h1#title {{data.frontPage.phone}}
+        a.twitter-share-button(href='https://twitter.com/share?ref_src=twsrc%5Etfw', data-size='large', data-text='Check out the {{data.frontPage.phone}}', data-lang='en', data-dnt='true', data-show-count='false') Tweet
+        hr
+        .btn-group(role='group', aria-label='Basic example')
+          a.btn.btn-secondary(href='/add-gadget/{{data._id}}', type='button') Edit
+          a.btn.btn-secondary(href='{{data._id}}/pictures', type='button') Add pictures
+          a#deletePost.btn.btn-secondary(href='/', type='button') Delete
+        #accordionExample.accordion
+          .row
+            .col-auto
+              img(height='400', src= '{{data.frontPage.pic}}')
+            .col-auto
+              p
+                a.btn.btn-secondary(data-toggle='collapse', href='#collapseSpecs', role='button', aria-expanded='true', aria-controls='collapseSpecs')
+                  | Specs
+              p
+                a.btn.btn-secondary(data-toggle='collapse', href='#collapseImages', role='button', aria-expanded='false', aria-controls='collapseImages')
+                  | Images
+            #collapseSpecs.collapse.show(data-parent='#accordionExample')
+              .col-auto.rounded.border.border-dark
+                p.spec-buffer
+                  b Brand
+                  | : {{data.devicePage.brand}}
+                p.spec-buffer
+                  b Generation
+                  | : {{data.devicePage.generation}}
+                p.spec-buffer
+                  b First released
+                  | : {{data.devicePage.released}}
+                p.spec-buffer
+                  b Predecessor
+                  | : {{data.devicePage.predecessor}}
+                p.spec-buffer
+                  b Dimensions
+                  | : {{data.devicePage.dimensions}}
+                p.spec-buffer
+                  b Weight
+                  | : {{data.devicePage.weight}}
+                p.spec-buffer
+                  b Operating system
+                  | : {{data.devicePage.os}}
+                p.spec-buffer
+                  b CPU
+                  | : {{data.devicePage.cpu}}
+                p.spec-buffer
+                  b Modem
+                  | : {{data.devicePage.modem}}
+                p.spec-buffer
+                  b Memory
+                  | : {{data.devicePage.memory}}
+                p.spec-buffer
+                  b Storage
+                  | : {{data.devicePage.storage}}
+                p.spec-buffer
+                  b Battery
+                  | : {{data.devicePage.battery}}
+                p.spec-buffer
+                  b Display
+                  | : {{data.devicePage.display}}
+                p.spec-buffer
+                  b Rear camera
+                  | : {{data.devicePage.rear_camera}}
+                p.spec-buffer
+                  b Front camera
+                  | : {{data.devicePage.front_camera}}
+                p.spec-buffer
+                  b Sound
+                  | : {{data.devicePage.sound}}
+            #collapseImages.row.collapse(data-parent='#accordionExample')
+              .container
+                .row
+                    .col(ng-repeat="picture in data.pictures")
+                      a.color-gray-darker.td-hover-none(data-target='#{{picture.target}}', data-toggle='modal', href='#')
+                        .ba-0.tp-s
+                          img.rounded.border.border-dark(height='200', src='{{picture.src}}')
+                      div(id='{{picture.target}}').modal.fade.center(aria-hidden='true', aria-labelledby='myModalLabel', role='dialog', tab/='-1')
+                        .modal-dialog(role='document')
+                          .modal-content.center
+                            .modal-body.mb-0.p-0
+                              img(src='{{picture.src}}', alt='', style='width:100%')
+        hr
+        h3
+          | Comments
+          .row
+            .col-auto
+              a.col-auto.btn.btn-secondary(href='{{data._id/comment', role='button')
+                  | Comment
+        hr
+        .container
+          .row
+            .col-md-8
+              .comments-list(ng-repeat="comment in data.comments")
+                div(id= '{{comment.num}}').media.row.top-buffers
+                  .media-left.col-auto.comImg(href='#')
+                    img.rounded-circle.center(src='{{comment.picture}}')
+                  .media-body.col
+                    h4.media-heading.user_name
+                      | {{comment.user}}
+                      small {{data.comment.date}}
+                      a(href=_id + '/comment/{{comment._id}}', style='color: black;')
+                        span.material-icons edit
+                    a
+                      button#deleteComment.close.text-right(href='/devicePost', type='button', aria-label='Close')
+                        span(onclick='removeItem( 1 )', aria-hidden='true') ×
+                    p {{comment.content}}
+                    span.rating(show-stars, stars="comment.stars")
+                hr

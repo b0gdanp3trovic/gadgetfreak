@@ -1,0 +1,9 @@
+extends layout
+include _include/sharedHTMLfunc.pug
+block append head
+  script(src='/javascripts/ds.js')
+block content
+  p
+    button.btn.btn-secondary(type='button', id='button1' onclick = 'restRequestDelete()') Delete all from db
+  p  
+    button.btn.btn-secondary(type='button' onclick = 'restRequestCreate()') Add starting data

@@ -1,0 +1,27 @@
+extends layout
+block append head
+    script(src='/javascripts/pictures.js')
+    
+block content
+  .row.justify-content-center
+    .jumbotron.w-75(padding='', top='500px')
+      h1.display-4 Pictures
+      p.lead Fill all of the required fields.
+      hr.my-4
+      form.form-horizontal(method="POST", action="", name="reg", role="form")
+        -if (login == "false")
+          .alert#emptyField.alert-danger(role="alert" ) Please log in or register to comment.
+        .dropdown
+        .form-group
+            b.label Gadget main picture:
+            input#mainPic.form-control(name='mainPic',type='text', placeholder='URL for main picture')
+        .form-group#additionalPics
+            p
+              b.label Gadget sub pictures:
+            p
+              .row
+                .col-auto
+                  button#addPicture.btn.btn-info(type='button') +
+            div#subPictures
+              input#subPic.form-control(name='subPic',type='text', placeholder='Pic: 1')
+        button.btn.btn-secondary(type='submit') Submit

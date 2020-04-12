@@ -1,0 +1,39 @@
+<navigation></navigation>
+<a id="addpost" class=" btn btn-secondary btn-block" href = '/add-post'>Start a new thread!</a>
+<table border="1" frame="void" rules="rows">
+    <tbody ng-controller = "forumCtrl">
+    <tr>
+    <th width="5%"></th>
+    <th width="15%">User:</th>
+    <th width="35%">Post:</th>
+    <th width="10%"></th>
+    <th width="10%">Replies:</th>
+    <th width="10%">Views:</th>
+    <th width="5%"></th>
+    <tr border='1', frame='void', rules='rows' ng-repeat = "post in vm.data.forumPosts">
+        <td>{{post.user}}</td>
+        <td>
+            <h4></h4>
+        </td>
+        <td>{{post.content}}</td>
+        <td>
+            <a id = "mojPost" href="/forum/post/{{post._id}}">
+                <font color="black">Read more...</font>
+            </a>
+        </td>
+        <td>{{post.replies.length}}</td>
+        <td>{{post.viewers.length}}</td>
+        <td>
+            <form role="form">
+                <div class="form-group">
+                   <button ng-show = "vm.user == post.user || vm.currentUserAd" class="btn btn-secondary" type="submit" align="center" method="post"  ng-click = "vm.showModal(post._id)">Edit</button>
+                   <hr>
+                   <button id="deleteMe" ng-show = "vm.user == post.user || vm.currentUserAd" class="btn btn-secondary" type="submit" align="center" method="post"  ng-click = "vm.deletePost(post._id)">Delete</button>
+
+                </div>
+            </form>
+        </td>
+    </tr>
+</tr>
+    </tbody>
+</table>

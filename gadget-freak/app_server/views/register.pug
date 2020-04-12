@@ -1,0 +1,74 @@
+extends layout
+block append head
+    script(src='/javascripts/register.js')
+
+block content
+    .row.justify-content-center
+        .col-md-6
+            .card
+                header.card-header
+                    h4.card-title.mt-2 Sign up
+                article.card-body
+                    form#addClient(method="POST", onsubmit="return mySubmitFunction(event)", action="", name="reg", role="form")
+                        .alert#emptyField.alert-danger(role="alert", style="display: none;" ) Please fill in all the fields.
+                        - if ( error == "true")
+                            .alert.alert-danger(role="alert") Please fill in all the fields.
+                        .form-row
+                            .col.form-group
+                                label First name
+                                input#name.form-control(name="name" type='text', maxlength='50', placeholder='')
+                            .col.form-group
+                                label Last name
+                                input#last.form-control(name="last" type='text', maxlength='50', placeholder=' ')
+                        .form-group
+                            label Email address
+                            input#email.form-control(name="email" type='email', maxlength='50', placeholder='')
+                            small.form-text.text-muted We'll never share your email with anyone else.
+                        .form-group
+                            label.form-check.form-check-inline
+                                input#gender1.form-check-input(type='radio', name='gender1', value='male')
+                                span.form-check-label  Male
+                            label.form-check.form-check-inline
+                                input#gender2.form-check-input(type='radio', name='gender2', value='female')
+                                span.form-check-label  Female
+                        .form-row
+                            .form-group.col-md-6
+                                label City
+                                input#city.form-control(name="city" type='text', maxlength='50')
+                            .form-group.col-md-6
+                                label Country
+                                select#country.form-control(name="country")
+                                    option(selected='') United States
+                                    option Slovenia
+                                    option Russia
+                                    option Canada
+                                    option China
+                        .form-group
+                            label Username
+                            input#uname.form-control(name="uname" type='text', maxlength='50')
+                        .form-group
+                            label Create password
+                            input#pword.form-control(name="pword" type='password', maxlength='50')
+                        .alert#Pw.alert-danger(role="alert", style="display: none;" ) 
+                            | Passwords must contain and be:
+                            ul
+                                li More than 6 symbols
+                                li Lower case letter
+                                li Upper case letter
+                                li Number
+                        
+                        .form-group
+                            label Confirm password
+                            input#cpword.form-control(name="cpword" type='password', maxlength='50')
+                        .alert#cPw.alert-danger(role="alert", style="display: none;" ) Passwords don't match
+                        .form-group
+                            button.btn.btn-secondary.btn-block(type='submit')  Register
+                        small.text-muted
+                            | By clicking the 'Register' button, you confirm that you accept our
+                            br
+                            |  Terms of use and Privacy Policy.
+                .border-top.card-body.text-center
+                    | Have an account?
+                    a(href='login') Log In
+
+

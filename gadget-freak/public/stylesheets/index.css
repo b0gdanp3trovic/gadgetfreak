@@ -1,0 +1,113 @@
+html, body { 
+    margin: 0; 
+    padding: 0; 
+    height: 100%;
+    
+} 
+
+.fade.in {
+  opacity: 1;
+}
+.modal.in .modal-dialog {
+  -webkit-transform: translate(0, 0);
+  -o-transform: translate(0, 0);
+  transform: translate(0, 0);
+}
+.modal-backdrop.in {
+  opacity: 0.5;
+}
+.modal-dialog {
+    position: absolute;
+    top: 25%;
+}
+.modal-backdrop {
+    background-color: #008000;
+    opacity:0.2 !important;
+}
+
+.indexBack{
+    position:fixed;
+    padding:0;
+    margin:0;
+
+    top:10;
+    left:0;
+
+    width: 100%;
+    height: 100%;
+    background-image:url('/images/9060.jpg');
+}
+.container-fluid {
+    min-height: 100%;
+    overflow: hidden;
+}
+
+
+.user_name{
+    font-size:14px;
+    font-weight: bold;
+}
+.comments-list .media{
+    border-bottom: 1px dotted #ccc;
+}
+
+
+.top-buffer { margin-top:20px; }
+.spec-buffer { 
+    margin-bottom:6px; 
+    font-size: 15px;
+}
+/* Navigation */
+.caret-up {
+  width: 0; 
+  height: 0; 
+  border-left: 4px solid rgba(0, 0, 0, 0);
+  border-right: 4px solid rgba(0, 0, 0, 0);
+  border-bottom: 4px solid;
+
+  display: inline-block;
+  margin-left: 2px;
+  vertical-align: middle;
+}
+.dropdown-menu > li > a:hover {
+color: #fff;
+text-decoration: none;
+background-color: #13477f        ;
+}
+
+.widget .panel-body { padding:0px; }
+.widget .list-group { margin-bottom: 0; }
+.widget .panel-title { display:inline }
+.widget .label-info { float: right; }
+.widget li.list-group-item {border-radius: 0;border: 0;border-top: 1px solid #ddd;}
+.widget li.list-group-item:hover { background-color: rgba(86,61,124,.1); }
+.widget .mic-info { color: #666666;font-size: 11px; }
+.widget .action { margin-top:5px; }
+.widget .comment-text { font-size: 12px; }
+.widget .btn-block { border-top-left-radius:0px;border-top-right-radius:0px; }
+
+.container-fluid {
+    min-height: 100%;
+    overflow: hidden;
+}
+
+.user_name{
+    font-size:14px;
+    font-weight: bold;
+}
+.comments-list .media{
+    padding-bottom: 5px;
+    border-bottom: 1px solid #ccc;
+}
+
+.top-buffer { margin-top:20px; }
+.spec-buffer { 
+    margin-bottom:6px; 
+    font-size: 15px;
+}
+
+.gallery
+{
+    display: inline-block;
+    margin-top: 20px;
+}

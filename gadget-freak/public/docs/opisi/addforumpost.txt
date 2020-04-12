@@ -1,0 +1,2 @@
+Here the user starts a new forum thread. User can choose an option (what the forum post is about), 
+which will act as a tag to make searches easier and more optimal. 

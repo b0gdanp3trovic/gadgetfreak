@@ -1,0 +1,47 @@
+<navigation></navigation>
+<div class="row justify-content-center">
+	<div class="jumbotron w-75" padding="" top="500px">
+		<h1 class="display-4">Add a new device here!</h1>
+		<p class="lead">Fill all of the required fields.</p>
+		<hr class="my-4" />
+		<div class="dropdown">
+			<div class="form-group">
+				<label>Type of gadget</label>
+				<select class="form-control" id="inputState" name="inputState">
+					<option selected=""> Choose...</option>
+					<option id = "phone">Phone</option>
+					<option>Desktop</option>
+					<option>Laptop</option>
+					<option>Tablet</option>
+					<option>Other</option>
+				</select>
+			</div>
+		</div>
+		<form  ng-submit="vm.sendData()" role="form">
+			<div class="form-group">
+				<label>Phone info</label>
+				<div role="alert" ng-show="vm.formError" class="alert alert-danger">{{ vm.formError }}</div>
+				<input class="form-control" id = "1" ng-model="vm.data.phone" id="phone" name="phone" type="text" placeholder="Model:" />
+				<input class="form-control" id = "2" ng-model="vm.data.pic" id="picture" name="picture" type="text" placeholder="URL for main picture:" />
+				<label>Phone specs </label>
+				<input class="form-control" id = "3" ng-model="vm.data.brand" id="brand" name="brand" type="text" placeholder="Brand:" />
+				<input class="form-control" id = "4" ng-model="vm.data.gen" id="gen" name="gen" type="text" placeholder="Generation:" />
+				<input class="form-control" id = "5" ng-model="vm.data.fist_release" id="fist_release" name="fist_release" type="text" placeholder="First released:" />
+				<input class="form-control" id = "6" ng-model="vm.data.predecessor" id="predecessor" name="predecessor" type="text" placeholder="Predecessor:" />
+				<input class="form-control" id = "7" ng-model="vm.data.dimensions" id="dimensions" name="dimensions" type="text" placeholder="Dimensions:" />
+				<input class="form-control" id = "8" ng-model="vm.data.weight" id="weight" name="weight" type="text" placeholder="Weight:" />
+				<input class="form-control" id = "9" ng-model="vm.data.os" id="os" name="os" type="text" placeholder="Operating system:" />
+				<input class="form-control" id = "10" ng-model="vm.data.cpu" id="cpu" name="cpu" type="text" placeholder="CPU:" />
+				<input class="form-control" id = "11" ng-model="vm.data.modem" id="modem" name="modem" type="text" placeholder="Modem:" />
+				<input class="form-control" id = "12" ng-model="vm.data.memory" id="memory" name="memory" type="text" placeholder="Memory:" />
+				<input class="form-control" id = "13" ng-model="vm.data.storage" id="storage" name="storage" type="text" placeholder="Storage:" />
+				<input class="form-control" id = "14" ng-model="vm.data.battery" id="battery" name="battery" type="text" placeholder="Battery:" />
+				<input class="form-control" id = "15" ng-model="vm.data.disp" id="disp" name="disp" type="text" placeholder="Display:" />
+				<input class="form-control" id = "16" ng-model="vm.data.rear_camera" id="rear_camera" name="rear_camera" type="text" placeholder="Rear camera:" />
+				<input class="form-control" id = "17" ng-model="vm.data.front_camera" id="front_camera" name="front_camera" type="text" placeholder="Front camera:"/>
+				<input class="form-control" id = "18" ng-model="vm.data.sound" id="sound" name="sound" type="text" placeholder="Sound:" />
+			</div>
+			<button class="btn btn-secondary" id = "dugme"type="submit">Submit</button>
+		</form>
+	</div>
+</div>

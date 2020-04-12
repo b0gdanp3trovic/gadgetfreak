@@ -1,0 +1,32 @@
+<navigation></navigation>
+<div class = "row justify-content-center">
+<div class="col-md-6">
+    <div class="card">
+        <header class="card-header">
+            <h4 class="card-title mt-2">Sign up</h4>
+        </header>
+        <article class="card-body">
+            <form id="addClient"  ng-submit="vm.sendRegisterData()" role="form">
+                <div role="alert" ng-show="vm.formError" class="alert alert-danger">{{ vm.formError }}</div>
+                <div class="form-row">
+                    <div class="col form-group"><label>First name</label><input ng-model="vm.regData.name" class="form-control" id="name" name="name" type="text" maxlength="50" placeholder="" /></div>
+                    <div class="col form-group"><label>Last name</label><input ng-model="vm.regData.last" class="form-control" id="last" name="last" type="text" maxlength="50" placeholder=" " /></div>
+                </div>
+                <div class="form-group"><label>Email address</label><input ng-model="vm.regData.email" class="form-control" id="email" name="email" type="email" maxlength="50" placeholder="" /><small class="form-text text-muted">We'll never share your email with anyone else.</small></div>
+                <div class="form-group"><label class="form-check form-check-inline"><input ng-model="vm.regData.gender1" class="form-check-input" id="gender1" type="radio" name="gender1" value="male"/><span class="form-check-label"> Male</span></label><label class="form-check form-check-inline"><input ng-model="vm.regData.gender2" class="form-check-input" id="gender2" type="radio" name="gender2" value="female"/><span class="form-check-label"> Female</span></label></div>
+                <div
+                    class="form-row">
+                    <div class="form-group col-md-6"><label>City</label><input ng-model="vm.regData.city" class="form-control" id="city" name="city" type="text" maxlength="50" /></div>
+                    <div class="form-group col-md-6"><label>Country</label><select ng-model="vm.regData.country" class="form-control" id="country" name="country"><option selected="">United States</option><option>Slovenia</option><option>Russia</option><option>Canada</option><option>China</option></select></div>
+    </div>
+    <div class="form-group"><label>Username</label><input ng-model="vm.regData.uname" class="form-control" id="uname" name="uname" type="text" maxlength="50" /></div>
+    <div class="form-group"><label>Create password</label><input ng-model="vm.regData.pword" class="form-control" id="pword" name="pword" type="password" maxlength="50" /></div>
+    <div role="alert" ng-show="vm.pwordError" class="alert alert-danger">{{ vm.pwordError }}</div>
+    <div class="form-group"><label>Confirm password</label><input ng-model="vm.regData.cpword" class="form-control" id="cpword" name="cpword" type="password" maxlength="50" /></div>
+    <div role="alert" ng-show="vm.matchError" class="alert alert-danger">{{ vm.matchError }}</div>
+    <div class="form-group"><button class="btn btn-secondary btn-block" type="submit"> Register</button></div><small class="text-muted">By clicking the 'Register' button, you confirm that you accept our<br/> Terms of use and Privacy Policy.</small></form>
+    </article>
+    <div class="border-top card-body text-center">Have an account?<a href="login">Log In</a></div>
+</div>
+</div>
+</div>

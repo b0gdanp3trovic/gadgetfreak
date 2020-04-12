@@ -1,0 +1,46 @@
+extends layout
+block append head
+    
+block content
+  .row.justify-content-center
+    .jumbotron.w-75(padding='', top='500px')
+      h1.display-4 Add a new device here!
+      p.lead Fill all of the required fields.
+      - if (id)
+        .alert.alert-info(role="alert" ) Only fill in the fields that you want to change.
+      hr.my-4
+      .dropdown
+        .form-group
+          label Type of gadget
+          select#inputState.form-control(name = 'inputState')
+            option(selected='')  Choose...
+            option Phone
+            option Desktop
+            option Laptop
+            option Tablet
+            option Other
+      form(method="POST", action="", name="reg", role="form")
+        .form-group
+          label Phone info
+          .alert#emptyField.alert-danger(role="alert", style="display: none;" ) Please fill in all the fields in phone info.
+          input#phone.form-control(name='phone',type='text', placeholder='Model:')
+          input#picture.form-control(name='picture',type='text', placeholder='URL for main picture:')
+          label Phone specs 
+          input#brand.form-control(name='brand', type='text', placeholder='Brand:')
+          input#gen.form-control(name='gen',type='text', placeholder='Generation:')
+          input#fist_release.form-control(name='fist_release',type='text', placeholder='First released:')
+          input#predecessor.form-control(name='predecessor',type='text', placeholder='Predecessor:')
+          input#dimensions.form-control(name='dimensions',type='text', placeholder='Dimensions:')
+          input#weight.form-control(name='weight', type='text', placeholder='Weight:')
+          input#os.form-control(name='os',type='text', placeholder='Operating system:')
+          input#cpu.form-control(name='cpu',type='text', placeholder='CPU:')
+          input#modem.form-control(name='modem',type='text', placeholder='Modem:')
+          input#memory.form-control(name='memory',type='text', placeholder='Memory:')
+          input#storage.form-control(name='storage',type='text', placeholder='Storage:')
+          input#battery.form-control(name='battery',type='text', placeholder='Battery:')
+          input#disp.form-control(name='disp',type='text', placeholder='Display:')
+          input#rear_camera.form-control(name='rear_camera',type='text', placeholder='Rear camera:')
+          input#front_camera.form-control(name='front_camera',type='text', placeholder='Front camera:')
+          input#sound.form-control(name='sound',type='text', placeholder='Sound:')
+          
+        button.btn.btn-secondary(type='submit') Submit

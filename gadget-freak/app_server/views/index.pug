@@ -1,0 +1,45 @@
+extends layout
+block append head
+  link(rel='stylesheet', href='stylesheets/index.css')
+  script(src='/javascripts/index.js')
+block content
+  body(style="background-image:url('images/9060.jpg'); ")
+    .container-fluid.text-left
+      .h-100.row.content
+        .col-sm-2.col-md-auto.sidenav.bg-dark
+          ul.navbar-nav.mr-auto.mt-2.mt-lg-0
+            li.nav-item.dropdown
+              a.nav-link.dropdown-toggle(data-toggle='dropdown', href='#')
+                font(color='white') Phones
+              span.caret
+              ul.dropdown-menu.bg-dark.text-left
+                  li
+                    a(href='devicePost/5c0c3285857f3d0bff588a51')
+                      font(color='white') Iphone
+            li.nav-item.dropdown
+              a.nav-link.dropdown-toggle(data-toggle='dropdown', href='#')
+                font(color='white') Laptops
+              span.caret
+              ul.dropdown-menu.bg-dark.text-left
+                li
+                  a(href='#')
+                    font(color='white') Alienware M15
+            li.nav-item.dropdown
+              a.nav-link.dropdown-toggle(data-toggle='dropdown', href='#')
+                font(color='white') Tech to be added
+              span.caret
+              ul.dropdown-menu.bg-dark.text-left
+                li
+                  a(href='#')
+                    font(color='white') ...
+        .container(style='margin-top: 8%; height: 100%;')
+          .row.justify-content-center
+            .col-12.col-md-10.col-lg-8
+              form.card.card-sm
+                .row.no-gutters.align-items-center
+                  .col-auto
+                    i.fas.fa-search.h4.text-body
+                  .col
+                    input.form-control.form-control-lg.form-control-borderless(type='search', placeholder='Search')
+                  .col-auto
+                    button.btn.btn-lg.btn-secondary(type='submit') Search
